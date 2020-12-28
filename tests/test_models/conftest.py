@@ -10,7 +10,7 @@ from pytorch_forecasting.data.examples import generate_ar_data, get_stallion_dat
 @pytest.fixture
 def gpus():
     if torch.cuda.is_available():
-        return [0]
+        return list(range(torch.cuda.device_count()))
     else:
         return 0
 
